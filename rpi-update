@@ -26,17 +26,19 @@ fi
 
 BRANCH=${BRANCH:-"master"}
 ROOT_PATH=${ROOT_PATH:-"/"}
-# CUR_FW_SUBDIR="/$(echo =$(vcgencmd get_config os_prefix) | cut -d'=' -f3)"
-# FW_SUBDIR=${FW_SUBDIR:-${CUR_FW_SUBDIR}}
-# if [[ "${FW_SUBDIR}" != "" ]]; then
-# 	if [[ "${FW_SUBDIR::1}" != "/" ]]; then
-# 		FW_SUBDIR="/$FW_SUBDIR"
-# 	fi
-# 	if [[ "${FW_SUBDIR: -1}" == "/" ]]; then
-# 		FW_SUBDIR=${FW_SUBDIR: : -1}
-# 	fi
-# fi
-FW_SUBDIR=${FW_SUBDIR:-"/firmware"}
+CUR_FW_SUBDIR="/$(echo =$(vcgencmd get_config os_prefix) | cut -d'=' -f3)"
+FW_SUBDIR=${FW_SUBDIR:-${CUR_FW_SUBDIR}}
+if [[ "${FW_SUBDIR}" != "" ]]; then
+	if [[ "${FW_SUBDIR::1}" != "/" ]]; then
+		FW_SUBDIR="/$FW_SUBDIR"
+	fi
+	if [[ "${FW_SUBDIR: -1}" == "/" ]]; then
+		FW_SUBDIR=${FW_SUBDIR: : -1}
+	fi
+fi
+# FW_SUBDIR=${FW_SUBDIR:-"/firmware"}
+echo "$FW_SUBDIR"
+exit 0
 BOOT_PATH=${BOOT_PATH:-"/boot"}
 WORK_PATH=${WORK_PATH:-"${ROOT_PATH}/root"}
 SKIP_KERNEL=${SKIP_KERNEL:-0}
@@ -61,7 +63,6 @@ FW_REPOLOCAL=${FW_REPOLOCAL:-"${WORK_PATH}/.rpi-firmware"}
 FW_PATH="${BOOT_PATH}${FW_SUBDIR}"
 FW_MODPATH="${ROOT_PATH}/lib/modules"
 FW_REV_IN=${1:-""}
-echo "$FW_PATH"
 FW_REVFILE="${FW_PATH}/.firmware_revision"
 SELFUPDATE_SCRIPT="${WORK_PATH}/.updateScript.sh"
 
