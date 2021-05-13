@@ -65,8 +65,12 @@ SELFUPDATE_SCRIPT="${WORK_PATH}/.updateScript.sh"
 
 [ "${RPI_UPDATE_UNSUPPORTED}" -ne 0 ] && echo -e "You appear to be trying to update firmware on an incompatible distribution. To force update, run the following:\nsudo -E RPI_UPDATE_UNSUPPORTED=0 rpi-update" && exit 1
 
+# if command -v vcgencmd > /dev/null; then
+# 	vcgencmd get_config str | grep -qE "^kernel=" && echo -e "You appear to be using a custom kernel file.\nSkipping installation of new kernel, as bundled dtb files may be incompatible with your kernel." && SKIP_KERNEL=1
+# fi
+
 if command -v vcgencmd > /dev/null; then
-	vcgencmd get_config str | grep -qE "^kernel=" && echo -e "You appear to be using a custom kernel file.\nSkipping installation of new kernel, as bundled dtb files may be incompatible with your kernel." && SKIP_KERNEL=1
+	vcgencmd get_config str | grep -qE "^kernel=" && echo -e "Warning: You appear to be using a custom kernel file.\nBundled dtb files may be incompatible with your kernel."
 fi
 
 # Always follow redirects
