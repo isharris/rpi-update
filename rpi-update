@@ -151,14 +151,14 @@ function update_modules {
 
 		find "${FW_REPOLOCAL}/modules" -mindepth 1 -maxdepth 1 -type d | while read DIR; do
 			BASEDIR="$(basename "${DIR}")"
-			echo "$BASEDIR"
+			# echo "$BASEDIR"
 			if [[ ${WANT_PI4} -ne 1 ]]; then
-				ENDSWITH=${BASEDIR: -4}
-				echo "$ENDSWITH"
-				if [[ "${ENDSWITH}" == "v7l+" ]]; then
-					continue;
-				fi
-				echo "$ENDSWITH"
+				# ENDSWITH=${BASEDIR: -4}
+				# echo "$ENDSWITH"
+				# if [[ "${ENDSWITH}" == "v7l+" ]]; then
+				# 	continue;
+				# fi
+				# echo "$ENDSWITH"
 				ENDSWITH=${BASEDIR: -3}
 				if [[ "${ENDSWITH}" == "v8+" ]]; then
 					continue;
