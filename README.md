@@ -41,7 +41,7 @@ To install the tool, run the following command:
 
 To install the tool, run the following command:
 
-    sudo curl -L --output /usr/bin/rpi-update-isharris-isharris https://raw.githubusercontent.com/isharris/rpi-update-isharris/master/rpi-update-isharris && sudo chmod +x /usr/bin/rpi-update-isharris-isharris
+    sudo curl -L --output /usr/bin/rpi-update-isharris https://raw.githubusercontent.com/isharris/rpi-update/master/rpi-update && sudo chmod +x /usr/bin/rpi-update-isharris
 
 ## Updating
 
