@@ -36,6 +36,7 @@ if [[ "${FW_SUBDIR}" != "" ]]; then
 		FW_SUBDIR=${FW_SUBDIR: : -1}
 	fi
 fi
+echo $FW_SUBDIR
 BOOT_PATH=${BOOT_PATH:-"/boot"}
 WORK_PATH=${WORK_PATH:-"${ROOT_PATH}/root"}
 SKIP_KERNEL=${SKIP_KERNEL:-0}
