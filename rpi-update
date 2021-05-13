@@ -29,11 +29,14 @@ ROOT_PATH=${ROOT_PATH:-"/"}
 CUR_FW_SUBDIR="/$(echo =$(vcgencmd get_config os_prefix) | cut -d'=' -f3)"
 FW_SUBDIR=${FW_SUBDIR:-${CUR_FW_SUBDIR}}
 if [[ "${FW_SUBDIR}" != "" ]]; then
+	echo "hi"
 	if [[ "${FW_SUBDIR::1}" != "/" ]]; then
 		FW_SUBDIR="/$FW_SUBDIR"
+		echo "2 if"
 	fi
 	if [[ "${FW_SUBDIR: -1}" == "/" ]]; then
 		FW_SUBDIR=${FW_SUBDIR: : -1}
+		echo "3 if"
 	fi
 fi
 # FW_SUBDIR=${FW_SUBDIR:-"/firmware"}
