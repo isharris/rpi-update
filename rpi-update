@@ -26,16 +26,17 @@ fi
 
 BRANCH=${BRANCH:-"master"}
 ROOT_PATH=${ROOT_PATH:-"/"}
-CUR_FW_SUBDIR="/$(echo =$(vcgencmd get_config os_prefix) | cut -d'=' -f3)"
-FW_SUBDIR=${FW_SUBDIR:-${CUR_FW_SUBDIR}}
-if [[ "${FW_SUBDIR}" != "" ]]; then
-	if [[ "${FW_SUBDIR::1}" != "/" ]]; then
-		FW_SUBDIR="/$FW_SUBDIR"
-	fi
-	if [[ "${FW_SUBDIR: -1}" == "/" ]]; then
-		FW_SUBDIR=${FW_SUBDIR: : -1}
-	fi
-fi
+# CUR_FW_SUBDIR="/$(echo =$(vcgencmd get_config os_prefix) | cut -d'=' -f3)"
+# FW_SUBDIR=${FW_SUBDIR:-${CUR_FW_SUBDIR}}
+# if [[ "${FW_SUBDIR}" != "" ]]; then
+# 	if [[ "${FW_SUBDIR::1}" != "/" ]]; then
+# 		FW_SUBDIR="/$FW_SUBDIR"
+# 	fi
+# 	if [[ "${FW_SUBDIR: -1}" == "/" ]]; then
+# 		FW_SUBDIR=${FW_SUBDIR: : -1}
+# 	fi
+# fi
+FW_SUBDIR=${FW_SUBDIR:-"/firmware"}
 echo $FW_SUBDIR
 BOOT_PATH=${BOOT_PATH:-"/boot"}
 WORK_PATH=${WORK_PATH:-"${ROOT_PATH}/root"}
