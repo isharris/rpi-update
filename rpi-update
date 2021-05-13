@@ -560,6 +560,7 @@ if [[ ${UPDATE_SELF} -ne 0 ]]; then
 else
 	rm -f "${SELFUPDATE_SCRIPT}"
 fi
+echo "updated self"
 exit 0
 
 if [[ ! -d "${FW_PATH}" ]]; then
