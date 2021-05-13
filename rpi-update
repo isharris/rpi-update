@@ -61,6 +61,7 @@ FW_REPOLOCAL=${FW_REPOLOCAL:-"${WORK_PATH}/.rpi-firmware"}
 FW_PATH="${BOOT_PATH}${FW_SUBDIR}"
 FW_MODPATH="${ROOT_PATH}/lib/modules"
 FW_REV_IN=${1:-""}
+echo "$FW_PATH"
 FW_REVFILE="${FW_PATH}/.firmware_revision"
 SELFUPDATE_SCRIPT="${WORK_PATH}/.updateScript.sh"
 
